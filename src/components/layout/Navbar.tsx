@@ -25,7 +25,7 @@ export function Navbar() {
                         <Keyboard className="w-5 h-5 text-primary" />
                     </div>
                     <span className="font-heading font-bold text-xl tracking-wide neon-text-primary">
-                        TypeFlow
+                        TypingJounery
                     </span>
                 </Link>
 

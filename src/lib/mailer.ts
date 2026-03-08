@@ -20,7 +20,7 @@ export async function sendOTPEmail(to: string, otp: string, name: string) {
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Verify your TypeFlow account</title>
+      <title>Verify your TypingJounery account</title>
     </head>
     <body style="margin:0;padding:0;background:#0A0F1E;font-family:'Segoe UI',system-ui,sans-serif;">
       <table width="100%" cellpadding="0" cellspacing="0" style="background:#0A0F1E;padding:40px 20px;">
@@ -28,7 +28,7 @@ export async function sendOTPEmail(to: string, otp: string, name: string) {
           <table width="520" cellpadding="0" cellspacing="0" style="background:#0f172a;border:1px solid #1e293b;border-radius:16px;overflow:hidden;">
             <tr>
               <td style="background:linear-gradient(135deg,#00E5FF22,#7c3aed22);padding:40px 40px 30px;text-align:center;border-bottom:1px solid #1e293b;">
-                <div style="font-size:32px;font-weight:900;color:#00E5FF;letter-spacing:-1px;margin-bottom:4px;">TypeFlow⌨️</div>
+                <div style="font-size:32px;font-weight:900;color:#00E5FF;letter-spacing:-1px;margin-bottom:4px;">TypingJounery⌨️</div>
                 <div style="color:#64748b;font-size:14px;">Typing Master Platform</div>
               </td>
             </tr>
@@ -36,7 +36,7 @@ export async function sendOTPEmail(to: string, otp: string, name: string) {
               <td style="padding:40px;">
                 <h2 style="color:#f1f5f9;font-size:22px;margin:0 0 12px;">Hi ${name}, verify your email 👋</h2>
                 <p style="color:#94a3b8;font-size:15px;line-height:1.6;margin:0 0 32px;">
-                  Use the code below to verify your email address and activate your TypeFlow account. This code expires in <strong style="color:#f1f5f9;">10 minutes</strong>.
+                  Use the code below to verify your email address and activate your TypingJounery account. This code expires in <strong style="color:#f1f5f9;">10 minutes</strong>.
                 </p>
                 <div style="background:#0A0F1E;border:2px solid #00E5FF33;border-radius:12px;padding:28px;text-align:center;margin:0 0 32px;">
                   <div style="letter-spacing:16px;font-size:40px;font-weight:900;color:#00E5FF;font-family:monospace;">${otp}</div>
@@ -49,7 +49,7 @@ export async function sendOTPEmail(to: string, otp: string, name: string) {
             </tr>
             <tr>
               <td style="padding:20px 40px;background:#0A0F1E;border-top:1px solid #1e293b;text-align:center;">
-                <div style="color:#475569;font-size:12px;">© 2024 TypeFlow · All rights reserved</div>
+                <div style="color:#475569;font-size:12px;">© 2024 TypingJounery · All rights reserved</div>
               </td>
             </tr>
           </table>
@@ -63,9 +63,9 @@ export async function sendOTPEmail(to: string, otp: string, name: string) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"TypeFlow" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"TypingJounery" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to,
-      subject: `${otp} is your TypeFlow verification code`,
+      subject: `${otp} is your TypingJounery verification code`,
       html,
     });
     console.log("[Mailer] OTP sent! Message ID:", info.messageId);
@@ -82,7 +82,7 @@ export async function sendPasswordResetEmail(to: string, resetUrl: string, name:
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Reset your TypeFlow password</title>
+      <title>Reset your TypingJounery password</title>
     </head>
     <body style="margin:0;padding:0;background:#0A0F1E;font-family:'Segoe UI',system-ui,sans-serif;">
       <table width="100%" cellpadding="0" cellspacing="0" style="background:#0A0F1E;padding:40px 20px;">
@@ -90,7 +90,7 @@ export async function sendPasswordResetEmail(to: string, resetUrl: string, name:
           <table width="520" cellpadding="0" cellspacing="0" style="background:#0f172a;border:1px solid #1e293b;border-radius:16px;overflow:hidden;">
             <tr>
               <td style="background:linear-gradient(135deg,#7c3aed22,#00E5FF22);padding:40px 40px 30px;text-align:center;border-bottom:1px solid #1e293b;">
-                <div style="font-size:32px;font-weight:900;color:#00E5FF;letter-spacing:-1px;margin-bottom:4px;">TypeFlow⌨️</div>
+                <div style="font-size:32px;font-weight:900;color:#00E5FF;letter-spacing:-1px;margin-bottom:4px;">TypingJounery⌨️</div>
                 <div style="color:#64748b;font-size:14px;">Typing Master Platform</div>
               </td>
             </tr>
@@ -114,7 +114,7 @@ export async function sendPasswordResetEmail(to: string, resetUrl: string, name:
             </tr>
             <tr>
               <td style="padding:20px 40px;background:#0A0F1E;border-top:1px solid #1e293b;text-align:center;">
-                <div style="color:#475569;font-size:12px;">© 2024 TypeFlow · All rights reserved</div>
+                <div style="color:#475569;font-size:12px;">© 2024 TypingJounery · All rights reserved</div>
               </td>
             </tr>
           </table>
@@ -128,9 +128,9 @@ export async function sendPasswordResetEmail(to: string, resetUrl: string, name:
 
   try {
     const info = await transporter.sendMail({
-      from: `"TypeFlow" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"TypingJounery" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to,
-      subject: "Reset your TypeFlow password",
+      subject: "Reset your TypingJounery password",
       html,
     });
     console.log("[Mailer] Reset email sent! Message ID:", info.messageId);

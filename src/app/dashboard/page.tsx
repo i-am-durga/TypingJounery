@@ -103,7 +103,7 @@ export default function DashboardPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-8">
                 {/* Stats Summary */}
                 <div className="col-span-1 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <Card className="bg-navy-light border-white/10 shadow-lg">
+                    <Card className="bg-navy/60 border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md rounded-2xl hover:border-white/10 transition-colors">
                         <CardHeader className="pb-2">
                             <CardTitle className="text-sm font-medium text-gray-400 flex items-center justify-between">
                                 Today&apos;s Avg
@@ -116,7 +116,7 @@ export default function DashboardPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-navy-light border-white/10 shadow-lg">
+                    <Card className="bg-navy/60 border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md rounded-2xl hover:border-white/10 transition-colors">
                         <CardHeader className="pb-2">
                             <CardTitle className="text-sm font-medium text-gray-400 flex items-center justify-between">
                                 Best Speed
@@ -129,7 +129,7 @@ export default function DashboardPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-navy-light border-white/10 shadow-lg">
+                    <Card className="bg-navy/60 border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md rounded-2xl hover:border-white/10 transition-colors">
                         <CardHeader className="pb-2">
                             <CardTitle className="text-sm font-medium text-gray-400 flex items-center justify-between">
                                 Accuracy
@@ -142,7 +142,7 @@ export default function DashboardPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-navy-light border-white/10 shadow-lg">
+                    <Card className="bg-navy/60 border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md rounded-2xl hover:border-white/10 transition-colors">
                         <CardHeader className="pb-2">
                             <CardTitle className="text-sm font-medium text-gray-400 flex items-center justify-between">
                                 Practice Time
@@ -158,7 +158,7 @@ export default function DashboardPage() {
 
                 {/* Level Progress */}
                 <div className="col-span-1 md:col-span-4">
-                    <Card className="bg-navy-light border-primary/30 shadow-[0_0_15px_rgba(0,229,255,0.1)] h-full">
+                    <Card className="bg-navy/60 border-primary/20 shadow-[0_0_30px_rgba(0,229,255,0.1)] backdrop-blur-md rounded-2xl h-full">
                         <CardHeader>
                             <CardTitle className="text-lg text-white">Current Level</CardTitle>
                         </CardHeader>
@@ -169,7 +169,7 @@ export default function DashboardPage() {
                             </div>
                             <Progress
                                 value={(Number(stats?.xp || 0) / getXpMax(Number(stats?.level || 1))) * 100}
-                                className="h-3 bg-white/10"
+                                className="h-4 bg-navy-dark border border-white/5 rounded-full overflow-hidden"
                             />
                             <div className="mt-2 text-right text-xs text-gray-400">
                                 {stats?.xp || 0} / {getXpMax(Number(stats?.level || 1))} XP
@@ -182,7 +182,7 @@ export default function DashboardPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Progress Chart */}
                 <div className="md:col-span-2">
-                    <Card className="bg-navy-light border-white/10 col-span-2 h-full">
+                    <Card className="bg-navy/60 border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md rounded-2xl col-span-2 h-full">
                         <CardHeader>
                             <CardTitle className="text-white">Recent Progress (WPM)</CardTitle>
                         </CardHeader>
@@ -195,10 +195,10 @@ export default function DashboardPage() {
                                             <XAxis dataKey="name" stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
                                             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
                                             <Tooltip
-                                                contentStyle={{ backgroundColor: '#0A0F1E', borderColor: '#ffffff20', borderRadius: '8px' }}
-                                                itemStyle={{ color: '#00E5FF' }}
+                                                contentStyle={{ backgroundColor: 'rgba(5, 8, 16, 0.9)', borderColor: 'rgba(255,255,255,0.1)', borderRadius: '12px', backdropFilter: 'blur(10px)', color: '#fff' }}
+                                                itemStyle={{ color: '#00E5FF', fontWeight: 'bold' }}
                                             />
-                                            <Line type="monotone" dataKey="wpm" stroke="#00E5FF" strokeWidth={3} dot={{ r: 4, fill: '#0A0F1E', strokeWidth: 2 }} activeDot={{ r: 6 }} />
+                                            <Line type="monotone" dataKey="wpm" stroke="#00E5FF" strokeWidth={3} dot={{ r: 4, fill: '#0A0F1E', strokeWidth: 2, stroke: '#00E5FF' }} activeDot={{ r: 7, fill: '#00E5FF', stroke: '#fff', strokeWidth: 2 }} className="drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]" />
                                         </LineChart>
                                     </ResponsiveContainer>
                                 ) : (
@@ -216,7 +216,7 @@ export default function DashboardPage() {
 
                 {/* Badges */}
                 <div>
-                    <Card className="bg-navy-light border-white/10 h-full">
+                    <Card className="bg-navy/60 border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md rounded-2xl h-full">
                         <CardHeader>
                             <CardTitle className="text-white flex justify-between items-center">
                                 Badges

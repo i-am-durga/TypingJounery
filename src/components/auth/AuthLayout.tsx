@@ -23,10 +23,10 @@ export function AuthLayout({ children, title, subtitle }: { children: React.Reac
 
     return (
         <div className="min-h-screen flex flex-col md:flex-row bg-navy items-center justify-center p-4">
-            <div className="w-full max-w-6xl flex shadow-2xl rounded-2xl overflow-hidden glass-panel border border-white/10 h-[800px] max-h-[90vh]">
+            <div className="w-full max-w-6xl flex shadow-[0_0_50px_rgba(0,0,0,0.5)] rounded-[2rem] overflow-hidden glass-panel border border-white/5 h-[800px] max-h-[90vh] bg-navy-dark/40 backdrop-blur-2xl">
 
                 {/* Left Side - Animated Demo */}
-                <div className="hidden md:flex md:w-1/2 bg-navy-dark p-12 flex-col justify-between relative overflow-hidden border-r border-white/5">
+                <div className="hidden md:flex md:w-1/2 bg-navy-dark/60 p-14 flex-col justify-between relative overflow-hidden border-r border-white/5 backdrop-blur-md">
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f1a_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f1a_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none" />
 
                     <Link href="/" className="flex items-center gap-2 group relative z-10 w-fit">
@@ -34,7 +34,7 @@ export function AuthLayout({ children, title, subtitle }: { children: React.Reac
                             <Keyboard className="w-5 h-5 text-primary" />
                         </div>
                         <span className="font-heading font-bold text-xl tracking-wide neon-text-primary">
-                            TypeFlow
+                            TypingJounery
                         </span>
                     </Link>
 
@@ -51,12 +51,12 @@ export function AuthLayout({ children, title, subtitle }: { children: React.Reac
                     </div>
 
                     <div className="relative z-10 text-gray-500 text-sm">
-                        &copy; {new Date().getFullYear()} TypeFlow
+                        &copy; {new Date().getFullYear()} TypingJounery
                     </div>
                 </div>
 
                 {/* Right Side - Form */}
-                <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-navy-light relative">
+                <div className="w-full md:w-1/2 p-8 md:p-14 lg:p-20 flex flex-col justify-center bg-navy/60 relative backdrop-blur-md">
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}

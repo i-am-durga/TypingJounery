@@ -69,8 +69,8 @@ export default function PracticeModesPage() {
                         transition={{ duration: 0.4, delay: idx * 0.1 }}
                     >
                         <Link href={mode.href} className="block h-full">
-                            <div className={`h-full flex flex-col p-8 rounded-2xl border transition-all duration-300 glass-panel group ${mode.color}`}>
-                                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-navy-dark/50 border border-white/5 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                            <div className={`h-full flex flex-col p-8 rounded-2xl border transition-all duration-300 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.5)] group hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] ${mode.color.includes('primary') ? 'bg-navy/80 hover:bg-navy border-primary/20 hover:border-primary/60' : mode.color.includes('secondary') ? 'bg-navy/80 hover:bg-navy border-secondary/20 hover:border-secondary/60' : mode.color.includes('blue') ? 'bg-navy/80 hover:bg-navy border-blue-400/20 hover:border-blue-400/60' : mode.color.includes('green') ? 'bg-navy/80 hover:bg-navy border-green-400/20 hover:border-green-400/60' : 'bg-navy/80 hover:bg-navy border-purple-400/20 hover:border-purple-400/60'}`}>
+                                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-navy-dark border border-white/5 group-hover:scale-110 transition-transform duration-300 shadow-inner group-hover:shadow-none">
                                     {mode.icon}
                                 </div>
                                 <h3 className="text-2xl font-bold font-heading text-white mb-3">{mode.title}</h3>
@@ -78,8 +78,8 @@ export default function PracticeModesPage() {
                                     {mode.description}
                                 </p>
                                 <div className="mt-8">
-                                    <span className="text-sm font-bold uppercase tracking-wider text-white opacity-50 group-hover:opacity-100 transition-opacity flex items-center gap-2">
-                                        Start Practice <span className="opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all">→</span>
+                                    <span className={`text-sm font-bold uppercase tracking-wider opacity-60 group-hover:opacity-100 transition-all flex items-center gap-2 ${mode.color.includes('primary') ? 'text-primary' : mode.color.includes('secondary') ? 'text-secondary' : mode.color.includes('blue') ? 'text-blue-400' : mode.color.includes('green') ? 'text-green-400' : 'text-purple-400'}`}>
+                                        Start Practice <span className="opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">→</span>
                                     </span>
                                 </div>
                             </div>
@@ -94,12 +94,12 @@ export default function PracticeModesPage() {
                     transition={{ duration: 0.4, delay: MODES.length * 0.1 }}
                     className="md:col-span-2 lg:col-span-1"
                 >
-                    <div className="h-full flex flex-col p-8 rounded-2xl border border-white/10 bg-navy-light/30 transition-all duration-300 hover:bg-navy-light/50 outline-dashed outline-2 outline-white/10 outline-offset-[-10px]">
+                    <div className="h-full flex flex-col p-8 rounded-2xl border border-white/10 bg-navy/60 backdrop-blur-md transition-all duration-300 hover:bg-navy/80 shadow-[0_0_30px_rgba(0,0,0,0.5)] outline-dashed outline-2 outline-white/10 outline-offset-[-10px] hover:outline-white/30">
                         <h3 className="text-2xl font-bold font-heading text-white mb-3 mt-4">Custom Text</h3>
                         <p className="text-gray-400 flex-1 leading-relaxed mb-6">
                             Paste your own text, code, or article to practice exactly what you need.
                         </p>
-                        <Button className="w-full bg-white/10 hover:bg-white/20 text-white font-bold h-12" asChild>
+                        <Button className="w-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-bold h-12 rounded-xl transition-all" asChild>
                             <Link href="/lesson/practice-custom">Upload Text</Link>
                         </Button>
                     </div>

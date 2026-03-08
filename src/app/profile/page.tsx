@@ -105,9 +105,9 @@ export default function ProfilePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Left Column - Settings & Info */}
                 <div className="md:col-span-1 space-y-6">
-                    <div className="glass-panel p-6">
+                    <div className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md p-6 rounded-2xl">
                         <div className="flex flex-col items-center mb-6">
-                            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center text-4xl font-bold text-white shadow-[0_0_20px_rgba(0,229,255,0.4)] mb-4 border-2 border-white/20">
+                            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center text-4xl font-bold text-navy shadow-[0_0_30px_rgba(0,229,255,0.4)] mb-4 border-2 border-white/20">
                                 {profile.name.substring(0, 1).toUpperCase()}
                             </div>
                             <h2 className="text-xl font-bold text-white mb-1">{profile.name}</h2>
@@ -139,15 +139,16 @@ export default function ProfilePage() {
                     </div>
 
                     {profile.currentLevel >= 4 && (
-                        <div className="glass-panel p-6 bg-gradient-to-br from-navy-light to-secondary/10 border-secondary/30">
+                        <div className="bg-navy/60 backdrop-blur-md p-6 rounded-2xl border border-secondary/30 shadow-[0_0_25px_rgba(255,183,3,0.15)] relative overflow-hidden">
+                            <div className="absolute -top-10 -right-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
                             <h3 className="font-bold text-white flex items-center gap-2 mb-2">
                                 <Award className="w-5 h-5 text-secondary" />
                                 Expert Certificate
                             </h3>
                             <p className="text-xs text-gray-400 mb-4">
-                                You&apos;ve reached Expert level! Download your official TypeFlow typing certificate.
+                                You&apos;ve reached Expert level! Download your official TypingJounery typing certificate.
                             </p>
-                            <Button className="w-full bg-secondary hover:bg-secondary-hover text-navy font-bold shadow-[0_0_15px_rgba(255,183,3,0.3)]">
+                            <Button className="w-full bg-secondary hover:bg-secondary-hover text-navy font-bold shadow-[0_0_20px_rgba(255,183,3,0.3)] hover:shadow-[0_0_30px_rgba(255,183,3,0.5)] transition-shadow">
                                 <Download className="w-4 h-4 mr-2" />
                                 Download PDF
                             </Button>
@@ -161,7 +162,7 @@ export default function ProfilePage() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            className="glass-panel p-8"
+                            className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md p-8 rounded-2xl"
                         >
                             <h3 className="text-xl font-bold text-white mb-6">Edit Information</h3>
                             <form onSubmit={handleUpdate} className="space-y-4">
@@ -171,7 +172,7 @@ export default function ProfilePage() {
                                         id="name"
                                         value={formData.name}
                                         onChange={e => setFormData({ ...formData, name: e.target.value })}
-                                        className="bg-navy border-white/10 text-white"
+                                        className="bg-navy/80 border-white/5 text-white h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300"
                                     />
                                 </div>
 
@@ -181,7 +182,7 @@ export default function ProfilePage() {
                                         id="email"
                                         value={profile.email}
                                         disabled
-                                        className="bg-navy/50 border-white/5 text-gray-500"
+                                        className="bg-navy/50 border-white/5 text-gray-500 h-12 rounded-xl"
                                     />
                                     <p className="text-xs text-gray-500">Email cannot be changed.</p>
                                 </div>
@@ -190,7 +191,7 @@ export default function ProfilePage() {
                                     <Label htmlFor="language" className="text-gray-300">Primary Language</Label>
                                     <select
                                         id="language"
-                                        className="flex h-10 w-full rounded-md border border-white/10 bg-navy px-3 py-2 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                        className="flex h-12 w-full rounded-xl border border-white/5 bg-navy/80 px-3 py-2 text-sm text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300 cursor-pointer"
                                         value={formData.language}
                                         onChange={e => setFormData({ ...formData, language: e.target.value })}
                                     >
@@ -200,7 +201,7 @@ export default function ProfilePage() {
                                     </select>
                                 </div>
 
-                                <Button type="submit" className="w-full bg-primary text-navy hover:bg-primary-hover font-bold mt-4">
+                                <Button type="submit" className="w-full bg-primary text-navy hover:bg-primary-hover font-bold h-12 rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all mt-4">
                                     Save Changes
                                 </Button>
                             </form>
@@ -209,22 +210,22 @@ export default function ProfilePage() {
                         <>
                             {/* Stats Overview Mini */}
                             <div className="grid grid-cols-3 gap-4">
-                                <div className="glass-panel p-4 text-center">
+                                <div className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md p-4 rounded-2xl text-center">
                                     <div className="text-2xl font-bold text-primary">{profile.totalXP}</div>
                                     <div className="text-xs text-gray-400 uppercase tracking-wider">Total XP</div>
                                 </div>
-                                <div className="glass-panel p-4 text-center">
+                                <div className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md p-4 rounded-2xl text-center">
                                     <div className="text-2xl font-bold text-orange-400">{profile.streak}</div>
                                     <div className="text-xs text-gray-400 uppercase tracking-wider">Day Streak</div>
                                 </div>
-                                <div className="glass-panel p-4 text-center">
+                                <div className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md p-4 rounded-2xl text-center">
                                     <div className="text-2xl font-bold text-secondary">{profile.unlockedLessons?.length || 0}</div>
                                     <div className="text-xs text-gray-400 uppercase tracking-wider">Lessons</div>
                                 </div>
                             </div>
 
                             {/* Full Badges Showcase */}
-                            <div className="glass-panel p-8">
+                            <div className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md p-8 rounded-2xl mt-6">
                                 <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Badge Collection</h3>
                                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                     {badges.map((badge, idx) => (
@@ -233,7 +234,7 @@ export default function ProfilePage() {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: idx * 0.05 }}
-                                            className={`relative flex flex-col items-center p-4 rounded-xl border ${badge.earned ? 'bg-navy border-primary/30 shadow-[0_0_15px_rgba(0,229,255,0.05)]' : 'bg-navy-dark border-white/5 opacity-40 grayscale blur-[0.5px]'}`}
+                                            className={`relative flex flex-col items-center p-4 rounded-2xl border transition-all duration-300 ${badge.earned ? 'bg-navy/80 border-primary/30 shadow-[0_0_20px_rgba(0,229,255,0.1)] hover:shadow-[0_0_25px_rgba(0,229,255,0.2)] hover:border-primary/50' : 'bg-navy-dark/50 border-white/5 opacity-40 grayscale blur-[0.5px] hover:blur-none hover:opacity-60'}`}
                                         >
                                             <div className="text-4xl mb-3 drop-shadow-lg">{badge.icon}</div>
                                             <div className="font-bold text-sm text-center text-white mb-1">{badge.name}</div>

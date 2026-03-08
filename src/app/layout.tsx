@@ -22,7 +22,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "TypeFlow | Master Typing Any Language",
+  title: "TypingJounery | Master Typing Any Language",
   description: "A futuristic typing learning platform with interactive lessons and gamification.",
 };
 

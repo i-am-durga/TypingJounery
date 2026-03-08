@@ -5,6 +5,8 @@ import { connectDB } from "@/lib/db";
 import { User } from "@/models/User";
 import { Session as TypingSession } from "@/models/Session";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
     try {
         const session = await getServerSession(authOptions);

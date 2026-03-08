@@ -108,11 +108,14 @@ export default function AdminPage() {
         return (
             <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
                 <Shield className="w-16 h-16 text-red-400 mb-4" />
-                <h1 className="text-3xl font-heading font-black text-white mb-2">Access Denied</h1>
-                <p className="text-gray-400 mb-6">You don&apos;t have admin privileges.</p>
-                <Link href="/dashboard">
-                    <Button className="bg-primary text-navy font-bold">Back to Dashboard</Button>
-                </Link>
+                <div className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md p-12 rounded-2xl flex flex-col items-center justify-center min-h-[50vh] text-center w-full max-w-lg mt-12 mx-auto">
+                    <Shield className="w-20 h-20 text-red-500/80 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)] mb-6" />
+                    <h1 className="text-3xl font-heading font-black text-white mb-3">Access Denied</h1>
+                    <p className="text-gray-400 mb-8 max-w-xs">You need administrator privileges to view this page.</p>
+                    <Link href="/dashboard" className="w-full">
+                        <Button className="w-full h-12 rounded-xl bg-primary hover:bg-primary-hover text-navy font-bold shadow-[0_0_20px_rgba(0,229,255,0.2)] transition-all">Back to Dashboard</Button>
+                    </Link>
+                </div>
             </div>
         );
     }
@@ -167,7 +170,7 @@ export default function AdminPage() {
                 ].map((stat, i) => (
                     <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.07 }}
-                        className="bg-navy-light border border-white/10 rounded-2xl p-5">
+                        className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md rounded-2xl p-6 transition-transform hover:-translate-y-1 hover:border-white/10 hover:shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
                         <div className="flex items-center justify-between mb-3">
                             <span className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</span>
                             <stat.icon className={`w-4 h-4 ${stat.color}`} />
@@ -178,7 +181,7 @@ export default function AdminPage() {
             </div>
 
             {/* User Table */}
-            <div className="bg-navy-light border border-white/10 rounded-2xl overflow-hidden">
+            <div className="bg-navy/60 border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md rounded-2xl overflow-hidden mt-8">
                 {/* Table Header */}
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between p-5 border-b border-white/10 gap-4">
                     <h2 className="text-lg font-bold text-white flex items-center gap-2">
@@ -190,7 +193,7 @@ export default function AdminPage() {
                             placeholder="Search by name or email..."
                             value={search}
                             onChange={e => { setSearch(e.target.value); setPage(1); }}
-                            className="pl-9 bg-navy border-white/10 text-white text-sm focus-visible:ring-primary"
+                            className="pl-9 bg-navy/80 border-white/5 text-white h-10 rounded-xl focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300"
                         />
                     </div>
                 </div>
@@ -206,7 +209,7 @@ export default function AdminPage() {
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm">
                             <thead>
-                                <tr className="text-left text-gray-500 text-xs uppercase tracking-wider bg-navy-dark/50">
+                                <tr className="text-left text-gray-400 text-xs uppercase tracking-wider bg-navy-dark/80 border-b border-white/5">
                                     <th className="px-5 py-3">User</th>
                                     <th className="px-5 py-3">Level</th>
                                     <th className="px-5 py-3">XP</th>
@@ -223,7 +226,7 @@ export default function AdminPage() {
                                         initial={{ opacity: 0, x: -10 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.03 }}
-                                        className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                                        className="border-b border-white/5 last:border-0 hover:bg-white/[0.03] transition-colors group">
                                         <td className="px-5 py-4">
                                             <div className="flex items-center gap-3">
                                                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center text-sm font-bold text-white border border-white/10 flex-shrink-0">

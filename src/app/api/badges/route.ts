@@ -15,6 +15,8 @@ const BADGE_DEFINITIONS = [
     { id: "master-typist", name: "Master Typist", description: "Reached Expert Level", icon: "👑" },
 ];
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
     try {
         const session = await getServerSession(authOptions);

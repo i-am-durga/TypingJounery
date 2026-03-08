@@ -15,7 +15,7 @@ export function Footer() {
                                 <Keyboard className="w-5 h-5 text-primary" />
                             </div>
                             <span className="font-heading font-bold text-xl tracking-wide neon-text-primary">
-                                TypeFlow
+                                TypingJounery
                             </span>
                         </Link>
                         <p className="text-gray-400 max-w-sm mb-6">
@@ -57,7 +57,7 @@ export function Footer() {
 
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-gray-500">
-                        &copy; {currentYear} TypeFlow (TypingJounery). All rights reserved.
+                        &copy; {currentYear} TypingJounery. All rights reserved.
                     </p>
                     <div className="flex items-center gap-2 text-sm text-gray-500">
                         <span>Built with</span>

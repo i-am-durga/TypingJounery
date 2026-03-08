@@ -138,7 +138,7 @@ export default function LearningPathPage() {
                                 <div className="absolute top-0 bottom-0 left-[27px] md:left-1/2 md:-translate-x-1/2 w-1 bg-white/5 rounded-full z-0 overflow-hidden">
                                     {isLevelUnlocked && (
                                         <motion.div
-                                            className="w-full bg-primary shadow-[0_0_10px_rgba(0,229,255,0.8)]"
+                                            className="w-full bg-primary shadow-[0_0_15px_rgba(0,229,255,1)]"
                                             initial={{ height: "0%" }}
                                             whileInView={{ height: "60%" }} // Mock progress
                                             viewport={{ once: true }}
@@ -162,8 +162,8 @@ export default function LearningPathPage() {
 
                                                 {/* Node Icon */}
                                                 <div className="absolute left-0 md:relative md:left-auto flex-shrink-0 z-10">
-                                                    <div className={`w-14 h-14 rounded-full flex items-center justify-center border-4 border-navy ${completed ? 'bg-primary shadow-[0_0_15px_rgba(0,229,255,0.5)]' :
-                                                        unlocked ? 'bg-navy-light border-primary text-primary shadow-[0_0_10px_rgba(0,229,255,0.3)]' :
+                                                    <div className={`w-14 h-14 rounded-full flex items-center justify-center border-4 border-navy ${completed ? 'bg-primary shadow-[0_0_25px_rgba(0,229,255,0.6)]' :
+                                                        unlocked ? 'bg-navy-light border-primary text-primary shadow-[0_0_15px_rgba(0,229,255,0.4)]' :
                                                             'bg-navy-dark border-white/10 text-gray-600'
                                                         }`}>
                                                         {completed ? <CheckCircle2 className="w-6 h-6 text-navy" /> :
@@ -179,14 +179,14 @@ export default function LearningPathPage() {
                                                         whileInView={{ opacity: 1, x: 0 }}
                                                         viewport={{ once: true, margin: "-50px" }}
                                                         transition={{ duration: 0.4, delay: idx * 0.1 }}
-                                                        className={`w-full max-w-md p-5 rounded-2xl glass-panel relative ${unlocked ? 'border-primary/30 hover:border-primary/60 transition-colors' : 'border-white/5 opacity-80'}`}
+                                                        className={`w-full max-w-md p-6 rounded-2xl relative transition-all duration-300 ${unlocked ? 'bg-navy/80 border border-primary/30 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md hover:border-primary/60 hover:shadow-[0_0_20px_rgba(0,229,255,0.15)]' : 'bg-navy-dark/50 border border-white/5 opacity-80 backdrop-blur-sm grayscale blur-[0.5px] hover:blur-none hover:opacity-100 hover:grayscale-0'}`}
                                                     >
                                                         <div className="flex justify-between items-start mb-3">
-                                                            <h3 className={`font-bold text-lg ${unlocked ? 'text-white' : 'text-gray-500'}`}>
+                                                            <h3 className={`font-bold text-xl ${unlocked ? 'text-white' : 'text-gray-500'}`}>
                                                                 {lesson.title}
                                                             </h3>
                                                             {unlocked && !completed && (
-                                                                <span className="px-2 py-1 text-[10px] uppercase font-bold tracking-wider bg-primary/20 text-primary rounded-md">
+                                                                <span className="px-3 py-1 text-[10px] uppercase font-bold tracking-wider bg-primary/20 text-primary rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(0,229,255,0.2)]">
                                                                     Current
                                                                 </span>
                                                             )}

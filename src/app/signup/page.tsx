@@ -209,13 +209,13 @@ export default function SignupPage() {
                             <div className="space-y-2">
                                 <Label htmlFor="name" className="text-gray-300">Full Name</Label>
                                 <Input id="name" name="name" placeholder="John Doe"
-                                    className="bg-navy border-white/10 text-white focus-visible:ring-primary"
+                                    className="bg-navy/80 border-white/5 text-white h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300"
                                     value={formData.name} onChange={handleChange} required />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="language" className="text-gray-300">Language</Label>
                                 <select id="language" name="language"
-                                    className="flex h-10 w-full rounded-md border border-white/10 bg-navy px-3 py-2 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                    className="flex h-12 w-full rounded-xl border border-white/5 bg-navy/80 px-3 py-2 text-sm text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300 cursor-pointer"
                                     value={formData.language} onChange={handleChange}>
                                     <option value="english">English</option>
                                     <option value="hindi">Hindi</option>
@@ -227,7 +227,7 @@ export default function SignupPage() {
                         <div className="space-y-2">
                             <Label htmlFor="email" className="text-gray-300">Email</Label>
                             <Input id="email" name="email" type="email" placeholder="name@example.com"
-                                className="bg-navy border-white/10 text-white focus-visible:ring-primary"
+                                className="bg-navy/80 border-white/5 text-white h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300"
                                 value={formData.email} onChange={handleChange} required />
                         </div>
 
@@ -235,19 +235,19 @@ export default function SignupPage() {
                             <div className="space-y-2">
                                 <Label htmlFor="password" className="text-gray-300">Password</Label>
                                 <Input id="password" name="password" type="password" placeholder="Min. 8 chars"
-                                    className="bg-navy border-white/10 text-white focus-visible:ring-primary"
+                                    className="bg-navy/80 border-white/5 text-white h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300"
                                     value={formData.password} onChange={handleChange} required />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="confirmPassword" className="text-gray-300">Confirm</Label>
                                 <Input id="confirmPassword" name="confirmPassword" type="password"
-                                    className="bg-navy border-white/10 text-white focus-visible:ring-primary"
+                                    className="bg-navy/80 border-white/5 text-white h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300"
                                     value={formData.confirmPassword} onChange={handleChange} required />
                             </div>
                         </div>
 
                         <Button type="submit"
-                            className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12 mt-6"
+                            className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12 rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all duration-300 mt-6"
                             disabled={isLoading}>
                             {isLoading ? (
                                 <span className="flex items-center gap-2"><RefreshCw className="w-4 h-4 animate-spin" /> Sending code...</span>
@@ -262,7 +262,7 @@ export default function SignupPage() {
                         </div>
 
                         <Button type="button" variant="outline"
-                            className="w-full h-12 border-white/10 bg-white/5 hover:bg-white/10 text-white"
+                            className="w-full h-12 rounded-xl border-white/5 bg-white/5 hover:bg-white/10 hover:border-white/10 text-white transition-all duration-300 backdrop-blur-sm"
                             onClick={handleGoogleLogin}>
                             <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
                                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -321,7 +321,7 @@ export default function SignupPage() {
                             </div>
 
                             <Button type="submit"
-                                className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12"
+                                className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12 rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all duration-300"
                                 disabled={isLoading || otp.join("").length !== 6}>
                                 {isLoading ? (
                                     <span className="flex items-center gap-2"><RefreshCw className="w-4 h-4 animate-spin" /> Verifying...</span>

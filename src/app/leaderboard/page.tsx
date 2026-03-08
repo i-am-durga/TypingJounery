@@ -31,7 +31,7 @@ export default function LeaderboardPage() {
                             { rank: 1, name: "NeonTypist99", wpm: 142, accuracy: 99, level: 4, badgesCount: 15 },
                             { rank: 2, name: "SpeedDemon", wpm: 138, accuracy: 97, level: 4, badgesCount: 12 },
                             { rank: 3, name: "KeyboardWarrior", wpm: 135, accuracy: 100, level: 4, badgesCount: 14 },
-                            { rank: 4, name: "TypeFlowDev", wpm: 120, accuracy: 96, level: 3, badgesCount: 8 },
+                            { rank: 4, name: "TypingJouneryDev", wpm: 120, accuracy: 96, level: 3, badgesCount: 8 },
                             { rank: 5, name: "QuickFingers", wpm: 115, accuracy: 98, level: 3, badgesCount: 7 },
                             { rank: 6, name: "QWERTYMaster", wpm: 108, accuracy: 94, level: 3, badgesCount: 6 },
                             { rank: 7, name: "SilentSwitches", wpm: 103, accuracy: 99, level: 2, badgesCount: 5 },

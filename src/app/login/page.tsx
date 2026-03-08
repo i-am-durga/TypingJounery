@@ -63,7 +63,7 @@ export default function LoginPage() {
                             id="email"
                             type="email"
                             placeholder="name@example.com"
-                            className="bg-navy border-white/10 text-white focus-visible:ring-primary"
+                            className="bg-navy/80 border-white/5 text-white h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -79,7 +79,7 @@ export default function LoginPage() {
                         <Input
                             id="password"
                             type="password"
-                            className="bg-navy border-white/10 text-white focus-visible:ring-primary"
+                            className="bg-navy/80 border-white/5 text-white h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary focus-visible:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all duration-300"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -89,7 +89,7 @@ export default function LoginPage() {
 
                 <Button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12"
+                    className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12 rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all duration-300"
                     disabled={isLoading}
                 >
                     {isLoading ? "Signing in..." : "Sign In"}
@@ -107,7 +107,7 @@ export default function LoginPage() {
                 <Button
                     type="button"
                     variant="outline"
-                    className="w-full h-12 border-white/10 bg-white/5 hover:bg-white/10 text-white"
+                    className="w-full h-12 rounded-xl border-white/5 bg-white/5 hover:bg-white/10 hover:border-white/10 text-white transition-all duration-300 backdrop-blur-sm"
                     onClick={handleGoogleLogin}
                 >
                     <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
