@@ -5,6 +5,7 @@ export interface IUser extends Document {
     email: string;
     passwordHash?: string;
     googleId?: string;
+    avatar?: string;
     language: string;
     currentLevel: number;
     currentLesson: number;
@@ -23,6 +24,7 @@ const UserSchema = new Schema<IUser>({
     email: { type: String, required: true, unique: true },
     passwordHash: { type: String },
     googleId: { type: String },
+    avatar: { type: String },
     language: { type: String, default: "english" },
     currentLevel: { type: Number, default: 1 },
     currentLesson: { type: Number, default: 1 },

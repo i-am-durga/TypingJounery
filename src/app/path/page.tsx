@@ -7,22 +7,8 @@ import { Lock, CheckCircle2, Play, Clock, Target } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-const LEVELS = [
-    { id: 1, name: "Beginner", description: "Learn the home row and basic finger placement.", color: "text-blue-400" },
-    { id: 2, name: "Intermediate", description: "Master capitalization, numbers, and common words.", color: "text-green-400" },
-    { id: 3, name: "Advanced", description: "Build speed with complex sentences and symbols.", color: "text-secondary" },
-    { id: 4, name: "Expert", description: "Professional documents and competitive speed tests.", color: "text-primary" },
-];
-
-interface LessonNode {
-    _id: string;
-    level: number;
-    order: number;
-    title: string;
-    targetWPM: number;
-    estimatedMinutes: number;
-    type: string;
-}
+import { LEVELS } from "@/constants/lessons";
+import { LessonNode } from "@/types";
 
 export default function LearningPathPage() {
     const { data: session } = useSession();

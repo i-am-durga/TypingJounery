@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { Flame, Trophy, Clock, Target, Play, Zap } from "lucide-react";
+import { Flame, Trophy, Clock, Target, Play, Zap, Keyboard } from "lucide-react";
 import Link from "next/link";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function DashboardPage() {
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
     const [stats, setStats] = useState<Record<string, number | string> | null>(null);
     const [sessions, setSessions] = useState<Record<string, unknown>[]>([]);
     const [badges, setBadges] = useState<Record<string, unknown>[]>([]);
@@ -69,7 +69,7 @@ export default function DashboardPage() {
         accuracy: s.accuracy
     }));
 
-    if (!session) return <div className="p-8 text-center">Loading...</div>;
+    if (status === "loading") return <div className="p-8 text-center mt-20 text-muted-foreground animate-pulse font-mono tracking-widest">LOADING DASHBOARD...</div>;
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -77,7 +77,7 @@ export default function DashboardPage() {
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
                 <div>
                     <h1 className="text-3xl font-heading font-bold text-white mb-2">
-                        {getGreeting()}, <span className="text-primary">{session.user?.name}</span>
+                        {getGreeting()}, <span className="text-primary">{session?.user?.name || "Guest"}</span>
                     </h1>
                     <div className="flex items-center gap-2 text-gray-400">
                         <Flame className="text-orange-500 w-5 h-5" />
@@ -95,6 +95,11 @@ export default function DashboardPage() {
                     <Button variant="outline" className="border-white/10 hover:bg-white/5 gap-2 text-white" asChild>
                         <Link href="/practice">
                             <Zap className="w-4 h-4 text-secondary" /> Daily Drill
+                        </Link>
+                    </Button>
+                    <Button variant="outline" className="border-primary/30 hover:bg-primary/10 gap-2 text-primary shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-all" asChild>
+                        <Link href="/beginner">
+                            <Keyboard className="w-4 h-4" /> Beginner Mode
                         </Link>
                     </Button>
                 </div>

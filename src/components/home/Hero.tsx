@@ -15,7 +15,7 @@ export function Hero() {
     return (
         <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden">
             {/* Dynamic Background */}
-            <div className="absolute inset-0 bg-navy z-0">
+            <div className="absolute inset-0 bg-background z-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none" />
                 <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary opacity-20 blur-[100px]" />
             </div>
@@ -23,7 +23,7 @@ export function Hero() {
             {/* Floating Letters Background */}
             {mounted && (
                 <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-30">
-                    {["A", "T", "Y", "P", "E", "F", "L", "O", "W", "K", "S", "D"].map((char, i) => (
+                    {["T", "Y", "P", "I", "N", "G", "J", "O", "U", "N", "E", "R", "Y", "D", "O", "J", "O"].map((char, i) => (
                         <motion.div
                             key={i}
                             className="absolute text-primary/40 font-mono text-4xl font-bold"
@@ -61,7 +61,7 @@ export function Hero() {
                 </motion.div>
 
                 <motion.h1
-                    className="text-4xl md:text-6xl lg:text-7xl font-heading font-black tracking-tight text-white mb-6"
+                    className="text-4xl md:text-6xl lg:text-7xl font-heading font-black tracking-tight text-foreground mb-6"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
@@ -72,7 +72,7 @@ export function Hero() {
                 </motion.h1>
 
                 <motion.p
-                    className="mt-6 max-w-[600px] text-gray-400 md:text-xl font-body mb-10"
+                    className="mt-6 max-w-[600px] text-muted-foreground md:text-xl font-body mb-10"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -82,20 +82,20 @@ export function Hero() {
 
                 {/* Language Selector Preview */}
                 <motion.div
-                    className="flex flex-wrap items-center justify-center gap-4 mb-10 bg-navy-light/50 p-4 rounded-2xl border border-white/5 backdrop-blur"
+                    className="flex flex-wrap items-center justify-center gap-4 mb-10 bg-card/50 p-4 rounded-2xl border border-border backdrop-blur"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                    <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(0,229,255,0.2)]">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-background/5 rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(0,229,255,0.2)]">
                         <span className="text-xl">🇺🇸</span>
-                        <span className="font-medium text-white">English</span>
+                        <span className="font-medium text-foreground">English</span>
                     </div>
-                    <div className="flex items-center gap-2 px-4 py-2 hover:bg-white/5 rounded-lg cursor-pointer transition-colors text-gray-400">
+                    <div className="flex items-center gap-2 px-4 py-2 hover:bg-muted/50 rounded-lg cursor-pointer transition-colors text-muted-foreground">
                         <span className="text-xl">🇮🇳</span>
                         <span>Hindi</span>
                     </div>
-                    <div className="flex items-center gap-2 px-4 py-2 hover:bg-white/5 rounded-lg cursor-pointer transition-colors text-gray-400">
+                    <div className="flex items-center gap-2 px-4 py-2 hover:bg-muted/50 rounded-lg cursor-pointer transition-colors text-muted-foreground">
                         <span className="text-xl">🇳🇵</span>
                         <span>Nepali</span>
                     </div>
@@ -106,8 +106,8 @@ export function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                    <Button size="lg" className="bg-primary hover:bg-primary-hover text-navy font-bold px-8 h-14 text-lg shadow-[0_0_20px_rgba(0,229,255,0.5)] transition-all hover:scale-105" asChild>
-                        <Link href="/signup">Start Learning Free</Link>
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 h-14 text-lg shadow-[0_0_20px_rgba(0,229,255,0.5)] transition-all hover:scale-105" asChild>
+                        <Link href="/register">Start Learning Free</Link>
                     </Button>
                 </motion.div>
             </div>

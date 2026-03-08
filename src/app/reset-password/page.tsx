@@ -98,7 +98,7 @@ function ResetPasswordForm() {
                         </div>
                         <p className="text-gray-400 text-sm">The link is invalid or has expired (links expire after 15 minutes).</p>
                         <Link href="/forgot-password">
-                            <Button className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12">
+                            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 rounded-xl">
                                 Request a new link →
                             </Button>
                         </Link>
@@ -110,8 +110,8 @@ function ResetPasswordForm() {
                         <div className="flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 border border-green-500/30 mx-auto">
                             <CheckCircle className="w-10 h-10 text-green-400" />
                         </div>
-                        <p className="text-gray-300 text-sm">You can now sign in with your new password.</p>
-                        <Button className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12"
+                        <p className="text-muted-foreground text-sm">You can now sign in with your new password.</p>
+                        <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 rounded-xl"
                             onClick={() => router.push("/login")}>
                             Sign In Now →
                         </Button>
@@ -133,13 +133,13 @@ function ResetPasswordForm() {
                                 <Input
                                     type={showPassword ? "text" : "password"}
                                     placeholder="Min. 8 characters"
-                                    className="bg-navy border-white/10 text-white pr-10 focus-visible:ring-primary"
+                                    className="bg-background border-border text-foreground pr-10 focus-visible:ring-primary h-12 rounded-xl"
                                     value={newPassword}
                                     onChange={e => setNewPassword(e.target.value)}
                                     required
                                 />
                                 <button type="button" onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white">
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
                                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                                 </button>
                             </div>
@@ -159,7 +159,7 @@ function ResetPasswordForm() {
                             <Input
                                 type="password"
                                 placeholder="Repeat your password"
-                                className="bg-navy border-white/10 text-white focus-visible:ring-primary"
+                                className="bg-background border-border text-foreground focus-visible:ring-primary h-12 rounded-xl"
                                 value={confirmPassword}
                                 onChange={e => setConfirmPassword(e.target.value)}
                                 required
@@ -170,7 +170,7 @@ function ResetPasswordForm() {
                         </div>
 
                         <Button type="submit"
-                            className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12"
+                            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 rounded-xl mt-4"
                             disabled={isLoading}>
                             {isLoading ? (
                                 <span className="flex items-center gap-2"><RefreshCw className="w-4 h-4 animate-spin" /> Saving...</span>

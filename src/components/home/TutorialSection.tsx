@@ -4,24 +4,24 @@ import { motion } from "framer-motion";
 
 export function TutorialSection() {
     return (
-        <section className="py-24 bg-navy-light relative overflow-hidden flex flex-col items-center">
+        <section className="py-24 bg-muted/10 relative overflow-hidden flex flex-col items-center">
             <div className="container px-4 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-6">
                         Perfect Form. <span className="text-secondary neon-text-secondary">Perfect Speed.</span>
                     </h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-16">
+                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-16">
                         Follow our visual guides to learn correct finger placement. Break bad habits and build muscle memory the right way.
                     </p>
                 </motion.div>
 
                 {/* CSS-based Hand & Keyboard Visualization since Lottie requires files we don't have yet */}
                 <motion.div
-                    className="relative max-w-4xl mx-auto bg-navy/50 p-8 rounded-3xl border border-white/10 shadow-2xl glass-panel"
+                    className="relative max-w-4xl mx-auto bg-card/50 p-8 rounded-3xl border border-border shadow-2xl glass-panel"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -50,21 +50,21 @@ export function TutorialSection() {
 
                     {/* Simple Keyboard Row Simulation */}
                     <div className="flex justify-center gap-2 mt-4 font-mono font-bold text-lg">
-                        <div className="w-14 h-14 bg-navy-dark border border-red-400/30 text-red-100 flex items-center justify-center rounded-lg animate-pulse">A</div>
-                        <div className="w-14 h-14 bg-navy-dark border border-yellow-400/30 text-yellow-100 flex items-center justify-center rounded-lg">S</div>
-                        <div className="w-14 h-14 bg-navy-dark border border-green-400/30 text-green-100 flex items-center justify-center rounded-lg">D</div>
-                        <div className="w-14 h-14 bg-navy-dark border-b-4 border-blue-400 text-blue-100 flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(96,165,250,0.4)]">F</div>
+                        <div className="w-14 h-14 bg-background border border-red-400/30 text-red-100 flex items-center justify-center rounded-lg animate-pulse">A</div>
+                        <div className="w-14 h-14 bg-background border border-yellow-400/30 text-yellow-100 flex items-center justify-center rounded-lg">S</div>
+                        <div className="w-14 h-14 bg-background border border-green-400/30 text-green-100 flex items-center justify-center rounded-lg">D</div>
+                        <div className="w-14 h-14 bg-background border-b-4 border-blue-400 text-blue-100 flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(96,165,250,0.4)]">F</div>
 
                         <div className="w-8"></div>
 
-                        <div className="w-14 h-14 bg-navy-dark border-b-4 border-blue-400 text-blue-100 flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(96,165,250,0.4)]">J</div>
-                        <div className="w-14 h-14 bg-navy-dark border border-green-400/30 text-green-100 flex items-center justify-center rounded-lg">K</div>
-                        <div className="w-14 h-14 bg-navy-dark border border-yellow-400/30 text-yellow-100 flex items-center justify-center rounded-lg">L</div>
-                        <div className="w-14 h-14 bg-navy-dark border border-red-400/30 text-red-100 flex items-center justify-center rounded-lg">;</div>
+                        <div className="w-14 h-14 bg-background border-b-4 border-blue-400 text-blue-100 flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(96,165,250,0.4)]">J</div>
+                        <div className="w-14 h-14 bg-background border border-green-400/30 text-green-100 flex items-center justify-center rounded-lg">K</div>
+                        <div className="w-14 h-14 bg-background border border-yellow-400/30 text-yellow-100 flex items-center justify-center rounded-lg">L</div>
+                        <div className="w-14 h-14 bg-background border border-red-400/30 text-red-100 flex items-center justify-center rounded-lg">;</div>
                     </div>
 
                     <div className="flex justify-center mt-2">
-                        <div className="w-64 h-14 bg-navy-dark border border-purple-400/30 flex items-center justify-center rounded-lg">
+                        <div className="w-64 h-14 bg-background border border-purple-400/30 flex items-center justify-center rounded-lg">
                             SPACE
                         </div>
                     </div>

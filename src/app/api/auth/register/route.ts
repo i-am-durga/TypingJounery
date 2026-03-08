@@ -4,6 +4,8 @@ import { connectDB } from "@/lib/db";
 import { User } from "@/models/User";
 import { OTP } from "@/models/OTP";
 import { sendOTPEmail } from "@/lib/mailer";
+import { rateLimit } from "@/lib/rateLimiter";
+import { sanitize } from "@/lib/sanitizer";
 
 function generateOTP(): string {
     return Math.floor(100000 + Math.random() * 900000).toString();
@@ -12,7 +14,18 @@ function generateOTP(): string {
 // Step 1: Send OTP to email
 export async function POST(req: Request) {
     try {
-        const { name, email, password, language } = await req.json();
+        const ip = req.headers.get("x-forwarded-for") || "anonymous";
+        const { success } = rateLimit(ip, 5, 60000); // 5 requests per minute
+
+        if (!success) {
+            return NextResponse.json({ message: "Too many requests. Please try again in a minute." }, { status: 429 });
+        }
+
+        const body = await req.json();
+        const name = sanitize(body.name);
+        const email = sanitize(body.email);
+        const password = body.password;
+        const language = body.language;
 
         if (!name || !email || !password) {
             return NextResponse.json({ message: "Missing required fields" }, { status: 400 });

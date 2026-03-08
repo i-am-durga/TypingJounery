@@ -2,9 +2,17 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import { User } from "@/models/User";
 import { OTP } from "@/models/OTP";
+import { rateLimit } from "@/lib/rateLimiter";
 
 export async function POST(req: Request) {
     try {
+        const ip = req.headers.get("x-forwarded-for") || "anonymous";
+        const { success } = rateLimit(ip, 10, 60000); // 10 attempts per minute
+
+        if (!success) {
+            return NextResponse.json({ message: "Too many attempts. Please try again in a minute." }, { status: 429 });
+        }
+
         const { email, otp } = await req.json();
 
         if (!email || !otp) {

@@ -1,16 +1,12 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcrypt";
 import { connectDB } from "@/lib/db";
 import { User } from "@/models/User";
 
 export const authOptions: NextAuthOptions = {
     providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID || "",
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
-        }),
+
         CredentialsProvider({
             name: "Credentials",
             credentials: {
@@ -48,31 +44,16 @@ export const authOptions: NextAuthOptions = {
         }),
     ],
     callbacks: {
-        async signIn({ user, account }) {
-            if (account?.provider === "google" && user.email) {
-                await connectDB();
-                const existingUser = await User.findOne({ email: user.email });
-
-                if (!existingUser) {
-                    await User.create({
-                        email: user.email,
-                        name: user.name || "User",
-                        googleId: account.providerAccountId,
-                    });
-                }
-            }
+        async signIn() {
             return true;
         },
-        async jwt({ token, user, account }) {
+        async jwt({ token, user }) {
             if (user) {
-                if (account?.provider === "google") {
-                    await connectDB();
-                    const dbUser = await User.findOne({ email: user.email });
-                    if (dbUser) {
-                        token.id = dbUser._id.toString();
-                    }
-                } else {
-                    token.id = user.id;
+                token.id = user.id;
+                await connectDB();
+                const dbUser = await User.findById(user.id);
+                if (dbUser && dbUser.avatar) {
+                    token.picture = dbUser.avatar;
                 }
             }
             return token;
@@ -80,12 +61,17 @@ export const authOptions: NextAuthOptions = {
         async session({ session, token }) {
             if (session.user && token.id) {
                 Object.assign(session.user, { id: token.id });
+                if (token.picture) {
+                    session.user.image = token.picture as string;
+                }
             }
             return session;
         },
     },
     session: {
         strategy: "jwt",
+        maxAge: 30 * 24 * 60 * 60, // 30 Days persistence
+        updateAge: 24 * 60 * 60, // Update JWT every 24 hours to prolong
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {

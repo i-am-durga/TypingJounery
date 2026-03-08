@@ -3,6 +3,7 @@ import { Space_Mono, Syne, DM_Sans } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Providers } from "@/components/providers/SessionProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
 const spaceMono = Space_Mono({
@@ -32,15 +33,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${spaceMono.variable} ${syne.variable} ${dmSans.variable} font-body antialiased min-h-screen flex flex-col`}>
-        <Providers>
-          <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${spaceMono.variable} ${syne.variable} ${dmSans.variable} font-body antialiased min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <Providers>
+            <Navbar />
+            <main className="flex-1 transition-colors duration-300">
+              {children}
+            </main>
+            <Footer />
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );

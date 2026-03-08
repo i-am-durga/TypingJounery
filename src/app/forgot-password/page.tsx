@@ -53,10 +53,10 @@ export default function ForgotPasswordPage() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         onSubmit={handleSubmit}
-                        className="space-y-6"
+                        className="space-y-6 w-full"
                     >
                         {error && (
-                            <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm">
+                            <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-500 text-sm">
                                 ⚠️ {error}
                             </div>
                         )}
@@ -69,7 +69,7 @@ export default function ForgotPasswordPage() {
                                     id="email"
                                     type="email"
                                     placeholder="name@example.com"
-                                    className="bg-navy border-white/10 text-white pl-10 focus-visible:ring-primary"
+                                    className="bg-background border-border text-foreground pl-10 focus-visible:ring-primary h-12 rounded-xl"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
                                     required
@@ -79,7 +79,7 @@ export default function ForgotPasswordPage() {
 
                         <Button
                             type="submit"
-                            className="w-full bg-primary hover:bg-primary-hover text-navy font-bold h-12"
+                            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 rounded-xl"
                             disabled={isLoading}
                         >
                             {isLoading ? (
@@ -101,14 +101,14 @@ export default function ForgotPasswordPage() {
                         className="text-center space-y-6"
                     >
                         <div className="flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 border border-green-500/30 mx-auto">
-                            <CheckCircle className="w-10 h-10 text-green-400" />
+                            <CheckCircle className="w-10 h-10 text-green-500" />
                         </div>
 
                         <div>
-                            <p className="text-gray-300 text-sm leading-relaxed mb-2">
-                                If an account exists for <strong className="text-white">{email}</strong>, you will receive a password reset link shortly.
+                            <p className="text-muted-foreground text-sm leading-relaxed mb-2">
+                                If an account exists for <strong className="text-foreground">{email}</strong>, you will receive a password reset link shortly.
                             </p>
-                            <p className="text-gray-500 text-xs">
+                            <p className="text-muted-foreground text-xs">
                                 The link expires in 15 minutes. Check your spam folder if you don&apos;t see it.
                             </p>
                         </div>
