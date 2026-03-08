@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Keyboard, Github, Twitter, Linkedin } from "lucide-react";
+import { Keyboard } from "lucide-react";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
